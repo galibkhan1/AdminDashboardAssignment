@@ -1,4 +1,6 @@
 const {User}=require("../models.js/user")
+const jwt=require("jsonwebtoken");
+const SECRET="scret"
 
 const signup=async(req,res)=>{
     //body extract 
@@ -26,9 +28,13 @@ const signup=async(req,res)=>{
         password
     })
 
+    const token = await jwt.sign({ name, email }, SECRET);
+
+
     return res.status(200).json({
         "name":createdUser.name,
-        "email":createdUser.email
+        "email":createdUser.email,
+        "access_token":token
     })
 
 }
@@ -48,11 +54,14 @@ const signin =async(req,res)=>{
             "error":"Password is not valid"
         })
     }
+    const name=existingUser.name;
+    const token = await jwt.sign({name , email }, SECRET);
     return res.status(200).json({
         "message":"User loggedIn",
         "user":{
             "name":existingUser.name,
-            "email":existingUser.email
+            "email":existingUser.email,
+            "access_token":token
         }
     })
 }
