@@ -37,8 +37,14 @@ const Signin = () => {
             }
         } catch (error) {
             console.error('Error:', error);
+        } finally{
+            navigate("/dashboard")
         }
     };
+
+    const signinHandler=()=>{
+
+    }
 
     return (
         <div className="bg-gray-100 flex items-center justify-center min-h-screen">
