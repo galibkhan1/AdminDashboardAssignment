@@ -25,7 +25,7 @@ const Signin = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('https://admindashboardassignment.onrender.com/api/v1/signin', {
+            const response = await fetch('http://localhost:8000/api/v1/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
