@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 const Dashboard = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -19,7 +19,7 @@ const Dashboard = () => {
                 });
 
                 if (response.status !== 200) {
-                    throw new Error('Failed to fetch users'); // Throw an error if the response is not 200
+                    throw new Error('Failed to fetch users'); 
                 }
 
                 const data = response.data; // No need to await here

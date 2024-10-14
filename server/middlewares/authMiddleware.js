@@ -11,8 +11,7 @@ const authMiddleWare = async (req, res, next) => {
     console.log(token)
 
     try {
-        const decoded =jwt.decode(token);
-        console.log(decoded)
+        
         const isVerified = jwt.verify(token, SECRET); // Verify the token
         if(isVerified){
             next();
