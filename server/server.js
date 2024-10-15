@@ -4,11 +4,11 @@ const db = require("./db/conn");
 const cors = require("cors");
 const mainRouter = require("./routes/userRoutes.js");
 
-// CORS configuration to allow all origins
+
 app.use(cors({
-    origin: '*', // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
