@@ -70,7 +70,7 @@ const Dashboard = () => {
                             <th className="py-3 px-6 text-left">Email</th>
                             <th className="py-3 px-6 text-left">Date of Birth</th>
                             <th className="py-3 px-6 text-left">Password</th>
-                            {/* Removed password for security */}
+                           
                         </tr>
                     </thead>
                     <tbody className="text-gray-600 text-sm font-light">
