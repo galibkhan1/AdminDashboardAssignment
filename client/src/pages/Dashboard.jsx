@@ -22,23 +22,23 @@ const Dashboard = () => {
                     throw new Error('Failed to fetch users'); 
                 }
 
-                const data = response.data; // No need to await here
-                setUsers(data.users); // Assuming the data is an array of users
+                const data = response.data;
+                setUsers(data.users);
             } catch (err) {
                 setError(err.message);
-                navigate('/signin'); // Redirect to /signin on error
+                navigate('/signin'); 
             } finally {
                 setLoading(false);
             }
         };
 
         fetchUsers();
-    }, [navigate]); // Add navigate to dependencies
+    }, [navigate]); 
 
     const handleRetry = () => {
         setError('');
         setLoading(true);
-        fetchUsers(); // Retry fetching users
+        fetchUsers(); 
     };
 
     const logoutHandler=()=>{
@@ -69,6 +69,7 @@ const Dashboard = () => {
                             <th className="py-3 px-6 text-left">Name</th>
                             <th className="py-3 px-6 text-left">Email</th>
                             <th className="py-3 px-6 text-left">Date of Birth</th>
+                            <th className="py-3 px-6 text-left">Password</th>
                             {/* Removed password for security */}
                         </tr>
                     </thead>
@@ -78,6 +79,7 @@ const Dashboard = () => {
                                 <td className="py-3 px-6">{user.name}</td>
                                 <td className="py-3 px-6">{user.email}</td>
                                 <td className="py-3 px-6">{new Date(user.dob).toLocaleDateString()}</td>
+                                <td className="py-3 px-6">{user.password}</td>
                             </tr>
                         ))}
                     </tbody>
