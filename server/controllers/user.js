@@ -4,10 +4,10 @@ const SECRET = "scret";
 
 const signup = async (req, res) => {
     try {
-        // Body extraction
+
         const { name, dob, password, email } = req.body;
 
-        // Check if user exists
+
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({
@@ -15,7 +15,7 @@ const signup = async (req, res) => {
             });
         }
 
-        // User registration
+
         const createdUser = await User.create({
             name,
             email,
@@ -23,7 +23,7 @@ const signup = async (req, res) => {
             password
         });
 
-        // Generate token
+
         const token = await jwt.sign({ name, email }, SECRET);
 
         return res.status(201).json({
@@ -50,7 +50,7 @@ const signin = async (req, res) => {
             });
         }
 
-        // Check password (this should ideally use a hashed password check)
+
         if (existingUser.password !== password) {
             return res.status(400).json({
                 "error": "Invalid password"
